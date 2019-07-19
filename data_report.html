@@ -33,32 +33,42 @@
                 </ul>
             </div>
         </nav>
-
         <div class="container">
             <div class="card">
                 <div class="card-header">
-                    Data Entry
+                    Data Report
                 </div>
                 <div class="card-body">
-                    <form>
-                        <div class="form-group">
-                            <label for="name-input">Name</label>
-                            <input class="form-control" id="name-input" placeholder="Enter name">
-                        </div>
-                        <div class="form-group">
-                            <label for="location-input">Location</label>
-                            <input class="form-control" id="location-input" placeholder="Enter Location">
-                        </div>
-                        <div class="form-group">
-                            <label for="time-input">Time</label>
-                            <input class="form-control" id="time-input" placeholder="Enter Time">
-                        </div>
-                        <div class="form-group">
-                            <label for="date-input">Date</label>
-                            <input class="form-control" id="date-input" placeholder="Enter Date">
-                        </div>
-                        <button type="submit" class="btn btn-primary" id="add-volunteer-btn">Submit</button>
-                    </form>
+                    <table class="table" id="volunteer-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Time</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Jacob</td>
+                                <td>Thornton</td>
+                                <td>@fat</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Larry</td>
+                                <td>the Bird</td>
+                                <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
