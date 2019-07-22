@@ -32,9 +32,10 @@ database.ref().on("child_added", function (childSnapshot) {
     var newRow = $("<tr>").append(
       $("<td>").text(tName),
       $("<td>").text(tCity),
-      $("<td>").text(tWeather),
       $("<td>").text(tHoursWorked),
-      $("<td>").text(tDate)
+      $("<td>").text(tDate),
+      $("<td>").text(tWeather),
+      
     );
     count++; 
     console.log("count before leaving function=> ",count);

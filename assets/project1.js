@@ -59,6 +59,7 @@ $("#add-volunteer-btn").on("click", function (event) {
 
         console.log(volunteer)
         database.ref().push(volunteer);
+       
     });
 });
 
