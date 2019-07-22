@@ -22,19 +22,19 @@ console.log("Initial Count => ",count);
 database.ref().on("child_added", function (childSnapshot) {
     // console.log(childSnapshot.val());
     
-    var tName = childSnapshot.val().volunteerName;
-    var tLocation = childSnapshot.val().volunteerLocation;
-    var tWeather = "sunny";
-    var tVolunteerDuration = childSnapshot.val().volunteerDuration;
-    var tVolunteerDate = childSnapshot.val().volunteerDate;
-    var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
+    var tName = childSnapshot.val().name;
+    var tCity = childSnapshot.val().city;
+    var tWeather = childSnapshot.val().weather.text;
+    var tHoursWorked = childSnapshot.val().hoursWorked;
+    var tDate = childSnapshot.val().date;
+    var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
     
     var newRow = $("<tr>").append(
       $("<td>").text(tName),
-      $("<td>").text(tLocation),
+      $("<td>").text(tCity),
       $("<td>").text(tWeather),
-      $("<td>").text(tVolunteerDuration),
-      $("<td>").text(volunteerDatePretty)
+      $("<td>").text(tHoursWorked),
+      $("<td>").text(tDate)
     );
     count++; 
     console.log("count before leaving function=> ",count);
