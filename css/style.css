@@ -1,6 +1,15 @@
 #particles-js {
 	background-color: darkred;
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	z-index: -1;
 }
+/* #img {
+	background-image: url("file:///C:/Prework_IH/Project_1A/Images/Vol11.jpg");
+	background: no-repeat;
+	
+} */
 #navbarNav{
     float: right;
     margin-right: 30px;
