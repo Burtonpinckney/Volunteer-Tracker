@@ -63,7 +63,7 @@ nav{
 	font-size: 1.6rem;
 }
 /*class brand attribute*/
-.brand{
+#brand{
 	font-size: 3rem;
 	font-weight: 300;
 	transform: translateX(-100rem);
