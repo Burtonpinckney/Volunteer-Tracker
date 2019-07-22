@@ -53,9 +53,9 @@ $("#add-volunteer-btn").on("click", function (event) {
         volunteer.weather = response.forecast.forecastday[0].day.condition;
         // console.log(volunteer.weather);
 
-        var text = response.forecast.forecastday[0].day.condition.text
-        var icon = '<img src="http:' + response.forecast.forecastday[0].day.condition.icon + '" alt="">'
-        $('#weather').html(text + " " + icon)
+        // var text = response.forecast.forecastday[0].day.condition.text
+        // var icon = '<img src="http:' + response.forecast.forecastday[0].day.condition.icon + '" alt="">'
+        // $('#weather').html(text + " " + icon)
 
         console.log(volunteer)
         database.ref().push(volunteer);
