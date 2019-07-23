@@ -25,18 +25,23 @@ database.ref().on("child_added", function (childSnapshot) {
     var tName = childSnapshot.val().name;
     var tCity = childSnapshot.val().city;
     var tWeather = childSnapshot.val().weather.text;
+    var icon = '<img src="http:' + childSnapshot.val().weather.icon + '" alt="">'
     var tHoursWorked = childSnapshot.val().hoursWorked;
     var tDate = childSnapshot.val().date;
+    var tTimeSubmitted = childSnapshot.val().timeSubmitted;
+    var tStartTime = childSnapshot.val().startTime
     var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
     
     var newRow = $("<tr>").append(
       $("<td>").text(tName),
       $("<td>").text(tCity),
+      $("<td>").text(tTimeSubmitted),
       $("<td>").text(tHoursWorked),
+      $("<td>").text(tStartTime),
       $("<td>").text(tDate),
-      $("<td>").text(tWeather),
-      
+      $("<td>").html(icon + tWeather),
     );
+    
     count++; 
     console.log("count before leaving function=> ",count);
     // // Append the new row to the table
