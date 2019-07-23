@@ -4,12 +4,9 @@
 	height: 100vh;
 	width: 100vw;
 	z-index: -1;
+	background-image: url("https://www.weaa.org/sites/weaa/files/styles/medium/public/201907/hot_sun-natl_wx_service_pic.jpg");
+	background-size: cover;
 }
-/* #img {
-	background-image: url("file:///C:/Prework_IH/Project_1A/Images/Vol11.jpg");
-	background: no-repeat;
-	
-} */
 #navbarNav{
     float: right;
     margin-right: 30px;
