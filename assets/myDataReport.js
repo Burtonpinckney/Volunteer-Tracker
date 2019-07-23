@@ -67,6 +67,7 @@ database.ref().on("child_added", function (childSnapshot) {
 /////////////////////////////////////////////////
 $("#sortName-btn").on("click", function (event) {
   event.preventDefault();
+  $("tbody").empty();
  // Show sortName Div...Hide the Rest // 
   $('#volunteer-card').hide();
   $('#sortName-card').show();
@@ -80,7 +81,7 @@ $("#sortName-btn").on("click", function (event) {
 
   ref.orderByChild("name").on("child_added", function (childSnapshot) {
     console.log(childSnapshot.key + " name sorted => " + childSnapshot.val().name + " done");
-    // $("#info-card").empty();
+   
      var tName = childSnapshot.val().name;
     var tCity = childSnapshot.val().city;
     var tWeather = childSnapshot.val().weather.text;
@@ -109,6 +110,7 @@ $("#sortName-btn").on("click", function (event) {
 /////////////////////////////////////////////////
 $("#sortCity-btn").on("click", function (event) {
   event.preventDefault();
+  $("tbody").empty();
  // Show sortName Div...Hide the Rest // 
  $('#volunteer-card').hide();
  $('#sortName-card').hide();
@@ -193,6 +195,7 @@ $("#sortCity-btn").on("click", function (event) {
 /////////////////////////////////////////////////
 $("#sortVolunteerTime-btn").on("click", function (event) {
   event.preventDefault();
+  $("tbody").empty();
  // Show sortName Div...Hide the Rest // 
  $('#volunteer-card').hide();
  $('#sortName-card').hide();
@@ -236,6 +239,7 @@ $("#sortVolunteerTime-btn").on("click", function (event) {
 /////////////////////////////////////////////////
 $("#sortDate-btn").on("click", function (event) {
   event.preventDefault();
+  $("tbody").empty();
  // Show sortName Div...Hide the Rest // 
  $('#volunteer-card').hide();
  $('#sortName-card').hide();
