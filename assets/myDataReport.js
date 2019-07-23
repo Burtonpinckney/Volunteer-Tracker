@@ -34,21 +34,32 @@ database.ref().on("child_added", function (childSnapshot) {
     $('#sortVolunteerTime-card').hide();
     $('#sortDate-card').hide();
 
-    var tName = childSnapshot.val().volunteerName;
-    var tLocation = childSnapshot.val().volunteerLocation;
-    var tWeather = "sunny";
-    var tVolunteerDuration = childSnapshot.val().volunteerDuration;
-    var tVolunteerDate = childSnapshot.val().volunteerDate;
-    var volunteerDatePretty = moment.unix(tVolunteerDate).format("MM/DD/YYYY");
+
+database.ref().on("child_added", function (childSnapshot) {
+    // console.log(childSnapshot.val());
+    
+    var tName = childSnapshot.val().name;
+    var tCity = childSnapshot.val().city;
+    var tWeather = childSnapshot.val().weather.text;
+    var icon = '<img src="http:' + childSnapshot.val().weather.icon + '" alt="">'
+    var tHoursWorked = childSnapshot.val().hoursWorked;
+    var tDate = childSnapshot.val().date;
+    var tTimeSubmitted = childSnapshot.val().timeSubmitted;
+    var tStartTime = childSnapshot.val().startTime
+    var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
     
     var newRow = $("<tr>").append(
       $("<td>").text(tName),
-      $("<td>").text(tLocation),
-      $("<td>").text(tWeather),
-      $("<td>").text(tVolunteerDuration),
-      $("<td>").text(volunteerDatePretty)
+      $("<td>").text(tCity),
+      $("<td>").html(icon + tWeather),
+      $("<td>").text(tHoursWorked),
+      $("<td>").text(tDate),
+      $("<td>").text(tTimeSubmitted),
+      $("<td>").text(tStartTime),
     );
-        
+    
+    count++; 
+    console.log("count before leaving function=> ",count);
     // // Append the new row to the table
     $("#volunteer-table > tbody").append(newRow);
   
@@ -69,21 +80,27 @@ $("#sortName-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("volunteerName").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().volunteerName + " done");
+  ref.orderByChild("name").on("child_added", function (snapshot) {
+    console.log(snapshot.key + " name sorted => " + snapshot.val().name + " done");
     // $("#info-card").empty();
-    var vName = snapshot.val().volunteerName;
-    var vLocation = snapshot.val().volunteerLocation;
-    var vDuration = snapshot.val().volunteerDuration;
-    var vDate = snapshot.val().volunteerDate;
-    var vDatePretty = moment.unix(vDate).format("MM/DD/YYYY");
-    // Create the new row
+     var tName = childSnapshot.val().name;
+    var tCity = childSnapshot.val().city;
+    var tWeather = childSnapshot.val().weather.text;
+    var icon = '<img src="http:' + childSnapshot.val().weather.icon + '" alt="">'
+    var tHoursWorked = childSnapshot.val().hoursWorked;
+    var tDate = childSnapshot.val().date;
+    var tTimeSubmitted = childSnapshot.val().timeSubmitted;
+    var tStartTime = childSnapshot.val().startTime
+    var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
+    
     var newRow = $("<tr>").append(
-      $("<td>").text(vName),
-      $("<td>").text(vLocation),
-      $("<td>").text("snowy"),
-      $("<td>").text(vDuration),
-      $("<td>").text(vDatePretty)
+      $("<td>").text(tName),
+      $("<td>").text(tCity),
+      $("<td>").html(icon + tWeather),
+      $("<td>").text(tHoursWorked),
+      $("<td>").text(tDate),
+      $("<td>").text(tTimeSubmitted),
+      $("<td>").text(tStartTime),
     );
     // // Append the new row to the table
     $("#sortName-table > tbody").append(newRow);
@@ -105,22 +122,27 @@ $("#sortCity-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("volunteerLocation").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().volunteerLocation + " done");
+  ref.orderByChild("city").on("child_added", function (snapshot) {
+    console.log(snapshot.key + " name sorted => " + snapshot.val().city + " done");
     // $("#info-card").empty();
-    var vName = snapshot.val().volunteerName;
-    var vLocation = snapshot.val().volunteerLocation;
-    var vDuration = snapshot.val().volunteerDuration;
-    var vDate = snapshot.val().volunteerDate;
-    var vDatePretty = moment.unix(vDate).format("MM/DD/YYYY");
-
-    // Create the new row
+    var tName = childSnapshot.val().name;
+    var tCity = childSnapshot.val().city;
+    var tWeather = childSnapshot.val().weather.text;
+    var icon = '<img src="http:' + childSnapshot.val().weather.icon + '" alt="">'
+    var tHoursWorked = childSnapshot.val().hoursWorked;
+    var tDate = childSnapshot.val().date;
+    var tTimeSubmitted = childSnapshot.val().timeSubmitted;
+    var tStartTime = childSnapshot.val().startTime
+    var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
+    
     var newRow = $("<tr>").append(
-      $("<td>").text(vLocation),
-      $("<td>").text(vName),
-      $("<td>").text("snowy"),
-      $("<td>").text(vDuration),
-      $("<td>").text(vDatePretty)
+      $("<td>").text(tCity),
+      $("<td>").text(tName),
+      $("<td>").html(icon + tWeather),
+      $("<td>").text(tHoursWorked),
+      $("<td>").text(tDate),
+      $("<td>").text(tTimeSubmitted),
+      $("<td>").text(tStartTime),
     );
     // Append the new row to the table
     $("#sortCity-table > tbody").append(newRow);
@@ -145,20 +167,25 @@ $("#sortCity-btn").on("click", function (event) {
 //   ref.orderByChild("volunteerWeather").on("child_added", function (snapshot) {
 //     console.log(snapshot.key + " name sorted => " + snapshot.val().volunteerWeather + " done");
 //     // $("#info-card").empty();
-//     var vName = snapshot.val().volunteerName;
-//     var vLocation = snapshot.val().volunteerLocation;
-//     var vDuration = snapshot.val().volunteerDuration;
-//     var vDate = snapshot.val().volunteerDate;
-//     var vDatePretty = moment.unix(vDate).format("MM/DD/YYYY");
-
-//     // Create the new row
-//     var newRow = $("<tr>").append(
-//       $("<td>").text(vLocation),
-//       $("<td>").text(vName),
-//       $("<td>").text("snowy"),
-//       $("<td>").text(vDuration),
-//       $("<td>").text(vDatePretty)
-//     );
+  //  var tName = childSnapshot.val().name;
+   // var tCity = childSnapshot.val().city;
+   // var tWeather = childSnapshot.val().weather.text;
+   // var icon = '<img src="http:' + childSnapshot.val().weather.icon + '" alt="">'
+   // var tHoursWorked = childSnapshot.val().hoursWorked;
+   // var tDate = childSnapshot.val().date;
+   // var tTimeSubmitted = childSnapshot.val().timeSubmitted;
+   // var tStartTime = childSnapshot.val().startTime
+   // var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
+    
+   // var newRow = $("<tr>").append(
+     // $("<td>").text(tName),
+      // $("<td>").text(tCity),
+      // $("<td>").html(icon + tWeather),
+      // $("<td>").text(tHoursWorked),
+      // $("<td>").text(tDate),
+      // $("<td>").text(tTimeSubmitted),
+      // $("<td>").text(tStartTime),
+    // );
 //     // Append the new row to the table
 //     $("#sortCity-table > tbody").append(newRow);
 //   });
@@ -179,22 +206,27 @@ $("#sortVolunteerTime-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("volunteerDuration").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().volunteerDuration + " done");
+  ref.orderByChild("hoursWorked").on("child_added", function (snapshot) {
+    console.log(snapshot.key + " name sorted => " + snapshot.val().hoursWorked + " done");
     // $("#info-card").empty();
-    var vName = snapshot.val().volunteerName;
-    var vLocation = snapshot.val().volunteerLocation;
-    var vDuration = snapshot.val().volunteerDuration;
-    var vDate = snapshot.val().volunteerDate;
-    var vDatePretty = moment.unix(vDate).format("MM/DD/YYYY");
-
-    // Create the new row
+    var tName = childSnapshot.val().name;
+    var tCity = childSnapshot.val().city;
+    var tWeather = childSnapshot.val().weather.text;
+    var icon = '<img src="http:' + childSnapshot.val().weather.icon + '" alt="">'
+    var tHoursWorked = childSnapshot.val().hoursWorked;
+    var tDate = childSnapshot.val().date;
+    var tTimeSubmitted = childSnapshot.val().timeSubmitted;
+    var tStartTime = childSnapshot.val().startTime
+    var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
+    
     var newRow = $("<tr>").append(
-      $("<td>").text(vDuration),
-      $("<td>").text(vName),
-      $("<td>").text(vLocation),
-      $("<td>").text("snowy"),
-      $("<td>").text(vDatePretty)
+      $("<td>").text(tHoursWorked),
+      $("<td>").text(tName),
+      $("<td>").text(tCity),
+      $("<td>").html(icon + tWeather),
+      $("<td>").text(tDate),
+      $("<td>").text(tTimeSubmitted),
+      $("<td>").text(tStartTime),
     );
     // Append the new row to the table
     $("#sortVolunteerTime-table > tbody").append(newRow);
@@ -217,22 +249,27 @@ $("#sortDate-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("volunteerDate").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().volunteerDate + " done");
+  ref.orderByChild("date").on("child_added", function (snapshot) {
+    console.log(snapshot.key + " name sorted => " + snapshot.val().date + " done");
     // $("#info-card").empty();
-    var vName = snapshot.val().volunteerName;
-    var vLocation = snapshot.val().volunteerLocation;
-    var vDuration = snapshot.val().volunteerDuration;
-    var vDate = snapshot.val().volunteerDate;
-    var vDatePretty = moment.unix(vDate).format("MM/DD/YYYY");
-
-    // Create the new row
+    var tName = childSnapshot.val().name;
+    var tCity = childSnapshot.val().city;
+    var tWeather = childSnapshot.val().weather.text;
+    var icon = '<img src="http:' + childSnapshot.val().weather.icon + '" alt="">'
+    var tHoursWorked = childSnapshot.val().hoursWorked;
+    var tDate = childSnapshot.val().date;
+    var tTimeSubmitted = childSnapshot.val().timeSubmitted;
+    var tStartTime = childSnapshot.val().startTime
+    var volunteerDatePretty = moment.unix(tDate).format("MM/DD/YYYY");
+    
     var newRow = $("<tr>").append(
-      $("<td>").text(vDatePretty),
-      $("<td>").text(vName),
-      $("<td>").text(vLocation),
-      $("<td>").text("snowy"),
-      $("<td>").text(vDuration),
+      $("<td>").text(tDate),
+      $("<td>").text(tName),
+      $("<td>").text(tCity),
+      $("<td>").html(icon + tWeather),
+      $("<td>").text(tHoursWorked),
+      $("<td>").text(tTimeSubmitted),
+      $("<td>").text(tStartTime),
     );
     // Append the new row to the table
     $("#sortDate-table > tbody").append(newRow);

@@ -17,7 +17,6 @@ var APIkey = "77525317f1664f6a978165917191907";
 // var dateStamp = moment().format('MMMM Do YYYY, h:mm:ss a');
 // console.log(moment().format('MMMM Do YYYY, h:mm:ss a'));
 
-
 // Capture Button Click
 $("#add-volunteer-btn").on("click", function (event) {
 
@@ -51,12 +50,6 @@ $("#add-volunteer-btn").on("click", function (event) {
     }).then(function (response) {
 
         volunteer.weather = response.forecast.forecastday[0].day.condition;
-        // console.log(volunteer.weather);
-
-        // var text = response.forecast.forecastday[0].day.condition.text
-        // var icon = '<img src="http:' + response.forecast.forecastday[0].day.condition.icon + '" alt="">'
-        // $('#weather').html(text + " " + icon)
-
         console.log(volunteer)
         database.ref().push(volunteer);
        
