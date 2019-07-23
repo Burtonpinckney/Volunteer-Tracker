@@ -22,7 +22,7 @@ var database = firebase.database();
 /////////////////////////////////////////////////
 //  Volunteer Summary Table on data_report.html//
 /////////////////////////////////////////////////
-database.ref().on("child_added", function (childSnapshot) {
+
 
   // var tWeather = childSnapshot.val().weather.text;
   //   $("<td>").text(tWeather),
@@ -58,8 +58,6 @@ database.ref().on("child_added", function (childSnapshot) {
       $("<td>").text(tStartTime),
     );
     
-    count++; 
-    console.log("count before leaving function=> ",count);
     // // Append the new row to the table
     $("#volunteer-table > tbody").append(newRow);
   
@@ -80,8 +78,8 @@ $("#sortName-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("name").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().name + " done");
+  ref.orderByChild("name").on("child_added", function (childSnapshot) {
+    console.log(childSnapshot.key + " name sorted => " + childSnapshot.val().name + " done");
     // $("#info-card").empty();
      var tName = childSnapshot.val().name;
     var tCity = childSnapshot.val().city;
@@ -122,8 +120,8 @@ $("#sortCity-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("city").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().city + " done");
+  ref.orderByChild("city").on("child_added", function (childSnapshot) {
+    console.log(childSnapshot.key + " name sorted => " + childSnapshot.val().city + " done");
     // $("#info-card").empty();
     var tName = childSnapshot.val().name;
     var tCity = childSnapshot.val().city;
@@ -206,8 +204,8 @@ $("#sortVolunteerTime-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("hoursWorked").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().hoursWorked + " done");
+  ref.orderByChild("hoursWorked").on("child_added", function (childSnapshot) {
+    console.log(childSnapshot.key + " name sorted => " + childSnapshot.val().hoursWorked + " done");
     // $("#info-card").empty();
     var tName = childSnapshot.val().name;
     var tCity = childSnapshot.val().city;
@@ -249,8 +247,8 @@ $("#sortDate-btn").on("click", function (event) {
   // https://firebase.google.com/docs/reference/js/firebase.database.Reference
   var ref = firebase.database().ref();
 
-  ref.orderByChild("date").on("child_added", function (snapshot) {
-    console.log(snapshot.key + " name sorted => " + snapshot.val().date + " done");
+  ref.orderByChild("date").on("child_added", function (childSnapshot) {
+    console.log(childSnapshot.key + " name sorted => " + childSnapshot.val().date + " done");
     // $("#info-card").empty();
     var tName = childSnapshot.val().name;
     var tCity = childSnapshot.val().city;
@@ -275,16 +273,4 @@ $("#sortDate-btn").on("click", function (event) {
     $("#sortDate-table > tbody").append(newRow);
   });
 }); // end  button
-
-
-
-
-
-
-
-
-
-
-
-
 
