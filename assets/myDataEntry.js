@@ -1,7 +1,7 @@
-// 1. Initialize Firebase
 console.log('AWESOME myDataEntry.js STUFF!');
-
-// Your web app's Firebase configuration
+////////////////////////////////////////////////
+//             Firebase configuration         //
+////////////////////////////////////////////////
 var firebaseConfig = {
   apiKey: "AIzaSyDAbwLtsdY_KEnrGa6aMNrdyh11aSK94f0",
   authDomain: "time-talent-treasure.firebaseapp.com",
@@ -11,12 +11,17 @@ var firebaseConfig = {
   messagingSenderId: "607547578040",
   appId: "1:607547578040:web:d670b674aa277ba5"
 };
-// Initialize Firebase
+////////////////////////////////////////////////
+//          Initialize Firebase               //
+////////////////////////////////////////////////
 firebase.initializeApp(firebaseConfig);
-
+////////////////////////////////////////////////
+//       convenience variable database        //
+////////////////////////////////////////////////
 var database = firebase.database();
-
-// 2. Button for adding volunteers
+////////////////////////////////////////////////
+// Button for adding volunteers on index.html //
+////////////////////////////////////////////////
 $("#add-volunteer-btn").on("click", function (event) {
   event.preventDefault();
 
