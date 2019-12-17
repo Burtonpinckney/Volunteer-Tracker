@@ -17,3 +17,7 @@ After the information has been submitted the user will be taken to the Data Tabl
 ![VolTrackTable](https://user-images.githubusercontent.com/51678140/71040416-8bee9800-20f4-11ea-82fc-97b9cba3f4da.png)
 
 There is also an About page that would allow an organization to list any information they wanted to include about themselves, upcoming events or any other information they felt was revelent.
+
+![VolTrackAbout](https://user-images.githubusercontent.com/51678140/71040685-2d75e980-20f5-11ea-88f3-c19bf04a7b52.png)
+
+Programs used include Javascript, HTML and CSS
