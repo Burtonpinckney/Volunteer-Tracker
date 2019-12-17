@@ -14,3 +14,6 @@ The entry page appears first. This is where all the important information is ini
 
 After the information has been submitted the user will be taken to the Data Table page which will list out all information including the submission time and the weather
 
+![VolTrackTable](https://user-images.githubusercontent.com/51678140/71040416-8bee9800-20f4-11ea-82fc-97b9cba3f4da.png)
+
+There is also an About page that would allow an organization to list any information they wanted to include about themselves, upcoming events or any other information they felt was revelent.
